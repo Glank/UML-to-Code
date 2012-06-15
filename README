@@ -1,1 +1,2 @@
-ECHO is on.
+Imports and exports can be configured to fit your system,
+simply configure the FROM and TO variables to meet your own needs.
