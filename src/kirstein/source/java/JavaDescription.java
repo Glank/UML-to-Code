@@ -23,9 +23,12 @@ public class JavaDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getClassHeader(UMLClass clazz) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
-		for(int i = 0; i < clazz.getComments().size(); i++){
-			lines.add("//"+clazz.getComments().get(i));
-		}
+		if(!clazz.getComments().isEmpty())
+			lines.add("/**");
+		for(int i = 0; i < clazz.getComments().size(); i++)
+			lines.add(" * "+clazz.getComments().get(i));
+		if(!clazz.getComments().isEmpty())
+			lines.add(" */");
 		String header = "";
 		switch(clazz.getType()){
 		case ABSTRACT_CLASS:
@@ -84,9 +87,12 @@ public class JavaDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getVariableDeclaration(UMLVariable variable) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
-		for(int i = 0; i < variable.getComments().size(); i++){
-			lines.add("//"+variable.getComments().get(i));
-		}
+		if(!variable.getComments().isEmpty())
+			lines.add("/**");
+		for(int i = 0; i < variable.getComments().size(); i++)
+			lines.add(" * "+variable.getComments().get(i));
+		if(!variable.getComments().isEmpty())
+			lines.add(" */");
 		String declaration = "";
 		switch(variable.getAccessType()){
 		case PACKAGE: break;
@@ -104,9 +110,12 @@ public class JavaDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getMethodTemplate(UMLMethod method) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
-		for(int i = 0; i < method.getComments().size(); i++){
-			lines.add("//"+method.getComments().get(i));
-		}
+		if(!method.getComments().isEmpty())
+			lines.add("/**");
+		for(int i = 0; i < method.getComments().size(); i++)
+			lines.add(" * "+method.getComments().get(i));
+		if(!method.getComments().isEmpty())
+			lines.add(" */");
 		String declaration = "";
 		switch(method.getAccessType()){
 		case PACKAGE: break;
