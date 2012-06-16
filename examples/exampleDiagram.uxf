@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.4">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>50</x>
+      <y>310</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>ConcreteClass
+--
+~ namespaceVariable : Type
+# protectedVariable : Type
+--
+//constructor
++ ConcreteClass()
+_+ staticOperation( parameter:Type ) : void_
+//necessary overriden methods
++ abstractOperation() : ReturnType
++ interfaceOperation() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>150</y>
+      <w>270</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+AbstractClass
+--
+- privateVariable : Type
++ publicVariable : OtherType
+--
++publicOperation( parameter:Type ) : void
+-privateOperation() : void
+#protectedOperation() : void
+~namespaceOperation() : void
+/+abstractOperation() : ReturnType/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>110</y>
+      <w>190</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Interface
+--
+--
++ interfaceOperation() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>170</x>
+      <y>210</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190;30;30;30;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>150</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160;30;160;90;30;90</additional_attributes>
+  </element>
+</diagram>

@@ -24,6 +24,8 @@ public class PHPDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getClassHeader(UMLClass clazz) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
+		for(int i = 0; i < clazz.getComments().size(); i++)
+			lines.add("// "+clazz.getComments().get(i));
 		String header = "";
 		switch(clazz.getType()){
 		case ABSTRACT_CLASS:
@@ -64,7 +66,7 @@ public class PHPDescription implements LanguageDescription{
 		if(!clazz.getExtends().isEmpty()){
 			if(clazz.getExtends().size()!=1)
 				throw new LanguageFactoryException("PHP does not support multiple inheritence.");
-			header+=" extends "+clazz.getExtends().firstElement();
+			header+=" extends "+clazz.getExtends().firstElement().getName();
 		}
 		if(!clazz.getImplements().isEmpty()){
 			header+=" implements";
@@ -82,6 +84,8 @@ public class PHPDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getVariableDeclaration(UMLVariable variable) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
+		for(int i = 0; i < variable.getComments().size(); i++)
+			lines.add("// "+variable.getComments().get(i));
 		String declaration = "";
 		switch(variable.getAccessType()){
 		case PACKAGE: break;
@@ -99,6 +103,8 @@ public class PHPDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getMethodTemplate(UMLMethod method) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
+		for(int i = 0; i < method.getComments().size(); i++)
+			lines.add("// "+method.getComments().get(i));
 		String declaration = "";
 		if(method.isAbstract() && method.getParent().getType()!=ClassType.INTERFACE)
 			declaration+="abstract ";
@@ -148,7 +154,7 @@ public class PHPDescription implements LanguageDescription{
 	@Override
 	public Iterable<String> getFileTerminator(SourceFile file) throws LanguageFactoryException {
 		LinkedList<String> lines = new LinkedList<String>();
-		lines.add(">");
+		lines.add("?>");
 		return lines;
 	}
 
